@@ -1,7 +1,11 @@
 
-var words=["NATIVE AMERICANS", "STETSON HAT", "BANDANNA", "COWBOYS", "GUNFIGHTERS","REVOLVER","BOUNTY HUNTER", "SHERIFF", "WILD WEST", "BILLY THE KID", "BUFFALO BILL"];
-var Hints=["people", "clothing","clothing", "people", "people", "thing", "person", "person", "event", "person", "person"];
+var words=["NATIVE AMERICANS", "STETSON HAT", "BANDANNA", "COWBOYS", "GUNFIGHTERS","REVOLVER","BOUNTY HUNTER", "SHERIFF", "WILD WEST", "BILLY THE KID", "BUFFALO BILL","CLINT EASTWOOD"];
+var Hints=["people", "clothing","clothing", "people", "people", "thing", "person", "person", "event", "person", "person","person"];
 var guessedLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]; 
+
+var gunshot = new Audio('./assets/sounds/gunshot.wav');
+var miss = new Audio('./assets/sounds/miss.wav');
+var winning = new Audio('./assets/sounds/winning.wav');
 
 var lives = 8;
 
@@ -57,12 +61,12 @@ function checkGuess(letter) {
     if (RandWord[j] === letter) {
         answer[j] = letter;
         remainingLetters--;
-    
+        gunshot.play();
         }
     }
     if (RandWord.match(letter) === null) {
         lives--;
-
+        miss.play();
         console.log(lives);
         }
         for (var i = 0; i < guessedLetters.length; i++){
@@ -77,6 +81,7 @@ function checkGuess(letter) {
     
 function checkWin() {
     if (answer.indexOf("_") === -1){
+        winning.play();
         document.getElementById("winlose").innerHTML = "you win press any key to start again";
         wins++;
         document.getElementById("wins").innerHTML ="wins: " + wins;
@@ -111,6 +116,7 @@ document.onkeyup = function(event) {
     else { if (event.keyCode >= 65 && event.keyCode <= 90) {
     
             checkGuess(userGuess.toUpperCase());
+            
             checkWin()
             checkLoss()
         }
