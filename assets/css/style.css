@@ -1,0 +1,34 @@
+
+
+
+body{
+    background-image: url("../images/background.jpg");
+    font-family: 'Rye', cursive;
+}
+
+
+.container{
+    background-image: url("../images/poster.jpg");
+    background-repeat: no-repeat;
+    height: 700px;
+    width: 600px;
+
+}
+
+header{
+    text-align: center;
+}
+h1{
+    font-size: 72px;
+}
+.filler{
+    height: 300px;
+}
+
+h2{
+    text-align: center;
+}
+
+#letters,#hints{
+    text-align: center;
+}
