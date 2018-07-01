@@ -42,7 +42,7 @@ function resetGame() {
     };
     document.getElementById("word").innerHTML = answer.join(" ");
     document.getElementById("hints").innerHTML = Hints[words.indexOf(RandWord)];
-    document.getElementById("lives").innerHTML ="lives: "+lives;
+    document.getElementById("lives").innerHTML ="Lives: "+lives;
     
     remainingLetters = RandWord.length;
     document.getElementById("winlose").innerHTML = "";
@@ -72,7 +72,7 @@ function checkGuess(letter) {
         for (var i = 0; i < guessedLetters.length; i++){
         if (guessedLetters[i] == letter) {
        var Lnumber =  guessedLetters.indexOf(letter);
-       guessedLetters[Lnumber] = guessedLetters[Lnumber].fontcolor("red");
+       guessedLetters[Lnumber] = guessedLetters[Lnumber].fontcolor("LightGray");
         document.getElementById("letters").innerHTML = guessedLetters.join(" ");
         
     }   
@@ -82,9 +82,9 @@ function checkGuess(letter) {
 function checkWin() {
     if (answer.indexOf("_") === -1){
         winning.play();
-        document.getElementById("winlose").innerHTML = "you win press any key to start again";
+        document.getElementById("winlose").innerHTML = "You win press any key to start again";
         wins++;
-        document.getElementById("wins").innerHTML ="wins: " + wins;
+        document.getElementById("wins").innerHTML ="Wins: " + wins;
         gameEnd = true;
         }
 };
@@ -93,9 +93,9 @@ function checkWin() {
   
 function checkLoss() {
     if (lives <= 0) {
-        document.getElementById("winlose").innerHTML = "you lose press key to start again";
+        document.getElementById("winlose").innerHTML = "You lose press key to start again";
         wins = 0;
-        document.getElementById("wins").innerHTML ="wins: " + wins;
+        document.getElementById("wins").innerHTML ="Wins: " + wins;
         gameEnd = true;
         }
 };
@@ -124,7 +124,7 @@ document.onkeyup = function(event) {
     }
 
     document.getElementById("word").innerHTML = answer.join(" ");
-    document.getElementById("lives").innerHTML ="lives: "+lives;
+    document.getElementById("lives").innerHTML ="Lives: "+lives;
 };
     
 
